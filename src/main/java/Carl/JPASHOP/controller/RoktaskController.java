@@ -19,12 +19,14 @@ public class RoktaskController {
     HwanRepository hwanRepository;
 
 
-    public void creattalbe() {
+    @GetMapping(value = "/insert")
+    public Roktask creattalbe() {
         Roktask roktask = new Roktask();
         roktask.setName("Hwan");
         roktask.setPhonenumber("010-3392-7642");
         Roktask saveRoktask = hwanRepository.save(roktask);
-        System.out.println(saveRoktask.toString());
+
+        return saveRoktask;
     }
 
 
