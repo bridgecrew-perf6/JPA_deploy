@@ -3,6 +3,7 @@ package Carl.JPASHOP.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -10,7 +11,8 @@ import javax.persistence.*;
 @Table(name = "roktask")
 @Getter
 @Setter
-public class MysqlConector {
+@ToString
+public class Roktask {
 
     @Id
     @Column
