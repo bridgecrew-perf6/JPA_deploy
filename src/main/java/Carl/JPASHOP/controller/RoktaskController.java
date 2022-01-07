@@ -29,12 +29,13 @@ public class RoktaskController {
 
 
     @GetMapping(value = "/find")
-    public void findByname() {
-        this.creattalbe();
+    public List<Roktask> findByname() {
+//        this.creattalbe();
         List<Roktask> roktaskList = hwanRepository.findByname("Hwan");
         for (Roktask roktask : roktaskList) {
             System.out.println(roktask.toString()); // 조회로 얻은 객체 한 줄 출력하기
         }
+        return roktaskList;
     }
 }
 
