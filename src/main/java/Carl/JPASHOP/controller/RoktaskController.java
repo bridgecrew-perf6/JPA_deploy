@@ -29,9 +29,13 @@ public class RoktaskController {
         Roktask newRoktask = hwanRepository.save(roktask);
     }
 
+    //
 
     @GetMapping(value = "/find")
-    public List<Roktask> findByname(@RequestParam("id") long id, @RequestParam("name") String name, @RequestParam("phonenumber") String phonenumber) {
+    public List<Roktask> findByname(
+            @RequestParam(value = "name")String name,
+            @RequestParam(value = "phonenumber")String phonenumber
+    ) {
         this.create();
         List<Roktask> roktaskList = hwanRepository.findByname("Hwan");
         for (Roktask roktask : roktaskList) {
@@ -39,6 +43,7 @@ public class RoktaskController {
         }
         return roktaskList;
     }
+
 
     @PostMapping(value = "/http/get") // insert
     public String updatTest(){
