@@ -29,29 +29,31 @@ public class RoktaskController {
         Roktask newRoktask = hwanRepository.save(roktask);
     }
 
-    @PostMapping(value = "/http/get") // insert
-    public String updatTest(){
-        return "insert 요청";
-    }
-
-    @PutMapping(value = "/http/put")  // update
-    public String putTest() {
-        return "update 요청";
-    }
-
-    @DeleteMapping(value = "/http/delete")
-    public String deleteTest() {
-        return "delete 요청";
-    }
 
     @GetMapping(value = "/find")
-    public List<Roktask> findByname() {
+    public List<Roktask> findByname(@RequestParam("id") long id, @RequestParam("name") String name, @RequestParam("phonenumber") String phonenumber) {
         this.create();
         List<Roktask> roktaskList = hwanRepository.findByname("Hwan");
         for (Roktask roktask : roktaskList) {
             System.out.println(roktask.toString()); // 조회로 얻은 객체 한 줄 출력하기
         }
         return roktaskList;
+    }
+
+    @PostMapping(value = "/http/get") // insert
+    public String updatTest(){
+        return "insert 요청";
+    }
+    // 인터넷 브라우저 요청은 get요청 밖에 안돼.
+    // update, delete, read 다 안됨. 오로지 겟만
+    @PutMapping(value = "/http/put")  // update
+    public String putTest() {
+        return "update 요청";
+    }
+
+    @DeleteMapping(value = "/http/delete") // delete
+    public String deleteTest() {
+        return "delete 요청";
     }
 }
 //    @GetMapping(value = "/insert")
