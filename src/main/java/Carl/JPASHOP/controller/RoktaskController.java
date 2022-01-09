@@ -19,7 +19,7 @@ public class RoktaskController {
     @Autowired // 오토와이어드 작업 안하면 빈 주입 안되어서 작동 안한다. 레파지토리에 빈 주입
     HwanRepository hwanRepository;
 
-
+    @GetMapping(value = "/create")
     public void create() {
         Roktask roktask = new Roktask();
         roktask.setName("Hwan");
