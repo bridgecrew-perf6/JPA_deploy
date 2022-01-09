@@ -12,6 +12,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.PostUpdate;
 import java.util.List;
 
+// @controller는 html로 응답함.
+// Restcontroller는 사용자가 요청시 data로 응답해줌
 @RestController
 @RequestMapping(value = "/api")
 public class RoktaskController {
