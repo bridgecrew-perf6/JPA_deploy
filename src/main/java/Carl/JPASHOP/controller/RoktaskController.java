@@ -12,6 +12,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.PostUpdate;
 import java.util.List;
 
+// @controller는 html로 응답함.
+// Restcontroller는 사용자가 요청시 data로 응답해줌
 @RestController
 @RequestMapping(value = "/api")
 public class RoktaskController {
@@ -19,7 +21,7 @@ public class RoktaskController {
     @Autowired // 오토와이어드 작업 안하면 빈 주입 안되어서 작동 안한다. 레파지토리에 빈 주입
     HwanRepository hwanRepository;
 
-    @GetMapping(value = "/create")
+    @GetMapping(value = "/create") // select
     public void create() {
         Roktask roktask = new Roktask();
         roktask.setName("Hwan");
@@ -27,9 +29,24 @@ public class RoktaskController {
         Roktask newRoktask = hwanRepository.save(roktask);
     }
 
+    @PostMapping(value = "/http/get") // insert
+    public String updatTest(){
+        return "insert 요청";
+    }
+
+    @PutMapping(value = "/http/put")  // update
+    public String putTest() {
+        return "update 요청";
+    }
+
+    @DeleteMapping(value = "/http/delete")
+    public String deleteTest() {
+        return "delete 요청";
+    }
+
     @GetMapping(value = "/find")
     public List<Roktask> findByname() {
-//        this.creattalbe();
+        this.create();
         List<Roktask> roktaskList = hwanRepository.findByname("Hwan");
         for (Roktask roktask : roktaskList) {
             System.out.println(roktask.toString()); // 조회로 얻은 객체 한 줄 출력하기
