@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RequestMapping(value = "/api") // localhost:8000/api
+//@RequestMapping(value = "/api") // localhost:8100/api
 public class DtoController {
 
-    @GetMapping(value = "/test") // localhost:8000/api/test
+    @GetMapping(value = "/test") // localhost:8100/api/test
     public UserDto test(){
 
         UserDto userDto = new UserDto();

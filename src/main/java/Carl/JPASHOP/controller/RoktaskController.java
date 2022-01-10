@@ -17,6 +17,11 @@ public class RoktaskController {
     @Autowired // 오토와이어드 작업 안하면 빈 주입 안되어서 작동 안한다. 레파지토리에 빈 주입
     HwanRepository hwanRepository;
 
+    // 글의 아이디를 넘기면 내용이 나오게 하는 기능을 구현한다.
+    // 지금 만든 기능으로 예를 들면 1번을 누르면 이름이랑 폰넘버가 나오게 하는 기능.
+    // 주소창에 find/id=1 이렇게 입력하면 1번 사용자가 나오고 이런 기능을 구현하는거임.
+
+
     @GetMapping(value = "/create") // select
     public String create() {
         Roktask roktask = new Roktask();
@@ -24,15 +29,13 @@ public class RoktaskController {
         roktask.setPhonenumber("010-3392-7642");
         Roktask newRoktask = hwanRepository.save(roktask);
         return "DB insert ok";
-    }       //
+    }
 
     @GetMapping(value = "/webinsert")
     public Roktask httpparam(
             @RequestParam(value = "name", defaultValue = "50") String name,
             @RequestParam(value = "phone", defaultValue = "50") String phone
     ) {
-        // 벨류가 파라메터로 안들어가는게 문제다, 내가 주소창에 입력하는 스트링값이 디비로 들어가야함 그것만 하면됨.
-        // http://localhost:8100/api/webinsert?name=su&phone=010-6366-6854 dl
         Roktask roktask = new Roktask();
         roktask.setName(name);
         roktask.setPhonenumber(phone);

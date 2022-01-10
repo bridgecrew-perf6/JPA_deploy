@@ -22,6 +22,4 @@ public class Roktask {
     private String name;
     @Column
     private String phonenumber;
-
-
 }
