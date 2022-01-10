@@ -3,13 +3,9 @@ package Carl.JPASHOP.controller;
 
 import Carl.JPASHOP.domain.Roktask;
 import Carl.JPASHOP.repository.HwanRepository;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.Enumerated;
-import javax.persistence.PostUpdate;
 import java.util.List;
 
 // @controller는 html로 응답함.
@@ -22,20 +18,32 @@ public class RoktaskController {
     HwanRepository hwanRepository;
 
     @GetMapping(value = "/create") // select
-    public void create() {
+    public String create() {
         Roktask roktask = new Roktask();
         roktask.setName("Hwan");
         roktask.setPhonenumber("010-3392-7642");
         Roktask newRoktask = hwanRepository.save(roktask);
-    }
+        return "DB insert ok";
+    }       //
 
-    //
+    @GetMapping(value = "/webinsert")
+    public Roktask httpparam(
+            @RequestParam(value = "name", defaultValue = "50") String name,
+            @RequestParam(value = "phone", defaultValue = "50") String phone
+    ) {
+        // 벨류가 파라메터로 안들어가는게 문제다, 내가 주소창에 입력하는 스트링값이 디비로 들어가야함 그것만 하면됨.
+        // http://localhost:8100/api/webinsert?name=su&phone=010-6366-6854 dl
+        Roktask roktask = new Roktask();
+        roktask.setName(name);
+        roktask.setPhonenumber(phone);
+        Roktask newRoktask = hwanRepository.save(roktask);
+        return roktask;
+    }
+    // 주소창에 특정 파라메터 입력하면 mysql db에 저장되는 기능을 만들라.
+    // 주소칸에 입력을 하면 스프링부트가 받고 받은 파라미터를 디비로 넘기면 되는 것.
 
     @GetMapping(value = "/find")
-    public List<Roktask> findByname(
-            @RequestParam(value = "name")String name,
-            @RequestParam(value = "phonenumber")String phonenumber
-    ) {
+    public List<Roktask> findByname() {
         this.create();
         List<Roktask> roktaskList = hwanRepository.findByname("Hwan");
         for (Roktask roktask : roktaskList) {
