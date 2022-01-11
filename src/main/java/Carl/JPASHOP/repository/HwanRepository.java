@@ -14,6 +14,4 @@ import java.util.List;
 public interface HwanRepository extends JpaRepository<Roktask, Long> {
 
         List<Roktask> findByname(String name);
-
-
 }
