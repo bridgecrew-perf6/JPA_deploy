@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>게시판</title>
@@ -21,10 +21,17 @@
     <tbody>
     <tr th:each="itemDto, status: ${itemDtoList}">
         <td th:text="${status.index}"></td>
-        <td th:text="${itemDto.itemNm}"></td>
-        <td th:text="${itemDto.itemdetail}"></td>
+        <td><a th:href="@{/thymeleaf/ex07(id1='/thymeleaf/ex02')}">e</script> </a></td>
+        <td><a th:href="@{/thymeleaf/ex07(id2='/thymeleaf/ex01')}">데이터베이스 2번</a></td> <!-- td안에 href 태그를 넘겨놓으면 됨-->
         <td th:text="${itemDto.price}"></td>
         <td th:text="${itemDto.regTime}"></td>
+        <ul>
+            <li th:text="${itemDto.itemNm}"></li>
+            <li th:text="${itemDto.itemdetail}"></li>
+            <li th:text="${itemDto.price}"></li>
+            <li th:text="${itemDto.regTime}"></li>
+            <!-- 이건 출력임 -->
+        </ul>
     </tr>
     </tbody>
 </table>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org">
+<!--- 위 문장 thymeleaf의 th:text 문법 사용을 지정, 추가하는 것 --->
+<head>
+    <meta charset="UTF-8">
+    <TITLE>Link Ex</TITLE>
+</head>
+<body>
+<h1>thymeleaf 링크처리 예제 페이지 </h1>
+<div>
+    <a th:href="@{/thymeleaf/ex01}">예제1 페이지 이동</a>
+</div>
+<div>
+    <a th:href="@{https://www.thymeleaf.org/}">thymeleaf 공식 페이지 이동</a>
+</div>
+    <a th:href="@{/thymeleaf/ex06(param1 = '파라미터 데이터1', param2 = '파라미터 데이터2')}">thymeleaf 파라미터 전달</a>
+    <!-- 리스트 출력할 때 기능을 하드코딩한 부분에 때려넣으면 값이 나올 것 -->
+</body>
+</html>

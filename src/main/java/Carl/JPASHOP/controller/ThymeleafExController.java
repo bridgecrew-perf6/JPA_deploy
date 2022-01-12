@@ -62,7 +62,7 @@ public class ThymeleafExController {
     // 위에 작성한 insert 기능으로 db에 값을 입력
     // DB에 저장된 값을 find 기능으로 n개 출력
     // 출력된 데이터들을 modellist 화 해서 view로 날림
-    @GetMapping(value = "/list")
+    @GetMapping(value = "/main")
     public String print(Model model) {
         List<ItemDto> itemDtoList = thymeLeafRepository.findAll();
         for (ItemDto itemDto : itemDtoList) {
@@ -73,10 +73,26 @@ public class ThymeleafExController {
         // 리스트로 넘겨야 리스트형 글로 출력할 수 있어.
     }
 
+    // href 기능을 쓸 것이다.
     // 리스트까지는 띄웠고
     // 리스트 중에 하나를 클릭하면 상품 데이터 출력이 되도록 만들면 됨.
     // 글 목록에 링크를 걸면 되는 기능을 추가한다.
     // id를 가지고 DB에 셀렉트를 해야함. 그렇게 해야 링크가 걸림.
     // 부분만 띄우게.
     // 글을 클릭하면 글 내용으로 넘어가는 기능을 만드는거임
+    @GetMapping(value = "/ex06")
+    public String thymeleafExample06(String param1, String param2, Model model){
+        model.addAttribute("param1",param1);
+        model.addAttribute("param2",param2);
+        return "thymeleafEx/thymeleafEx06";
+
+        // 여기는 받는 작업, 디비에서 받은 내용
+    }
+
+    @GetMapping(value = "/ex05")
+    public String thymeleafExample05(){
+        return "thymeleafEx/thymeleafEx05";
+    }
+
+
 }
