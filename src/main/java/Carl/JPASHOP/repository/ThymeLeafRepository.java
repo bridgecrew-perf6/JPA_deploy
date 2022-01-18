@@ -1,12 +1,15 @@
 package Carl.JPASHOP.repository;
 
 import Carl.JPASHOP.domain.ItemDto;
-import Carl.JPASHOP.domain.Roktask;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ThymeLeafRepository extends JpaRepository<ItemDto, Long> {
 
-    List<ItemDto> findAll();
+    List<ItemDto> findById(Long id);
+
 }
