@@ -2,14 +2,12 @@ package Carl.JPASHOP.repository;
 
 import Carl.JPASHOP.domain.ItemDto;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface ThymeLeafRepository extends JpaRepository<ItemDto, Long> {
 
-    List<ItemDto> findById(Long id);
+    List<ItemDto> findByContainingIgnoreCaseOrTitleContainingIgnoreCase(Long id, String content);
 
 }

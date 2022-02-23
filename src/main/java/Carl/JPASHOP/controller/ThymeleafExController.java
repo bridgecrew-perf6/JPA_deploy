@@ -2,6 +2,7 @@ package Carl.JPASHOP.controller;
 
 
 import Carl.JPASHOP.domain.ItemDto;
+import Carl.JPASHOP.domain.Roktask;
 import Carl.JPASHOP.repository.ThymeLeafRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -81,18 +82,24 @@ public class ThymeleafExController {
     // 부분만 띄우게.
     // 글을 클릭하면 글 내용으로 넘어가는 기능을 만드는거임
     @GetMapping(value = "/ex06")
-    public String thymeleafExample06(String param1, String param2, Model model){
-        model.addAttribute("param1",param1);
-        model.addAttribute("param2",param2);
+    public String thymeleafExample06(String param1, String param2, Model model) {
+        model.addAttribute("param1", param1);
+        model.addAttribute("param2", param2);
         return "thymeleafEx/thymeleafEx06";
 
         // 여기는 받는 작업, 디비에서 받은 내용
     }
 
     @GetMapping(value = "/ex05")
-    public String thymeleafExample05(){
+    public String thymeleafExample05() {
         return "thymeleafEx/thymeleafEx05";
     }
 
+    @GetMapping(value = "/printid")
+    public List<ItemDto> findByidfunction() {
+    // id를 0,1,2,3, 를 넣으면 아이디와 같은 줄에 있는 애들 모두 나오게 할 것임.
 
+
+    }
 }
+
