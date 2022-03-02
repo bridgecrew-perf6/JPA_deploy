@@ -90,9 +90,9 @@ public class ThymeleafExController {
         // 여기는 받는 작업, 디비에서 받은 내용
     }
 
-    @GetMapping(value = "/ex05")
-    public String thymeleafExample05() {
-        return "thymeleafEx/thymeleafEx05";
+ //   @GetMapping(value = "/ex05")
+  //  public String thymeleafExample05() {
+    //    return "thymeleafEx/thymeleafEx05";
     }
 
 //    @GetMapping(value = "/printid")
@@ -101,5 +101,5 @@ public class ThymeleafExController {
 //
 //
 //    }
-}
+//}
 
