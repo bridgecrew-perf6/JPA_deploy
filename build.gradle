@@ -32,11 +32,11 @@ dependencies {
 
 }
 
-bootJar {
-	bootJarMainClassName = 'com.JPAMKSHOP.JPAMKSHOPApplication'
-}
+/*bootJar {
+	//bootJarMainClassName = 'com.JPAMKSHOP.JPAMKSHOPApplication'
+}*/
 
-bootRun {
+/*bootRun {
 	String activeProfile = System.properties['spring.profiles.active']
 	systemProperty "spring.profiles.active", activeProfile
 }

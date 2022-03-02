@@ -95,11 +95,11 @@ public class ThymeleafExController {
         return "thymeleafEx/thymeleafEx05";
     }
 
-    @GetMapping(value = "/printid")
-    public List<ItemDto> findByidfunction() {
-    // id를 0,1,2,3, 를 넣으면 아이디와 같은 줄에 있는 애들 모두 나오게 할 것임.
-
-
-    }
+//    @GetMapping(value = "/printid")
+//    public List<ItemDto> findByidfunction() {
+//    // id를 0,1,2,3, 를 넣으면 아이디와 같은 줄에 있는 애들 모두 나오게 할 것임.
+//
+//
+//    }
 }
 
